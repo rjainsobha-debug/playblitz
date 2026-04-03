@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0d0d0d;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #111;
+}
+
+.logo {
+  font-size: 24px;
+  color: #00ffcc;
+}
+
+nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #00ffcc;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.games {
+  padding: 40px;
+}
+
+.grid {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 30px;
+  flex: 1;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+
+.game-container {
+  text-align: center;
+  padding: 20px;
+}
+
+canvas {
+  background: black;
+  margin-top: 20px;
+  border: 2px solid #00ffcc;
+}
