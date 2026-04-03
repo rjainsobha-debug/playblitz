@@ -1,86 +1,90 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: #0d0d0d;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0f2027, #000);
   color: white;
 }
 
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
-  background: #111;
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
-  font-size: 24px;
-  color: #00ffcc;
+  font-size: 26px;
+  color: #00ffd5;
+  font-weight: bold;
 }
 
 nav a {
-  margin-left: 20px;
+  margin-left: 25px;
   color: white;
   text-decoration: none;
 }
 
+/* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: 50px;
+  background: linear-gradient(90deg, #00ffd5, #00aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #00ffcc;
+  margin-top: 30px;
+  padding: 14px 35px;
+  background: #00ffd5;
   color: black;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
 }
 
-.games {
-  padding: 40px;
-}
-
+/* GAME CARDS */
 .grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
 .card {
-  background: #1a1a1a;
-  padding: 30px;
-  flex: 1;
-  text-align: center;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 20px #00ffd5;
 }
 
 .disabled {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-}
-
-.game-container {
-  text-align: center;
-  padding: 20px;
-}
-
+/* GAME */
 canvas {
   background: black;
+  border-radius: 10px;
   margin-top: 20px;
-  border: 2px solid #00ffcc;
+}
+
+button {
+  padding: 10px 20px;
+  background: #00ffd5;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
 }
