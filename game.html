@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlayBlitz Game</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlayBlitz Game</title>
+<link rel="stylesheet" href="css/style.css">
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="js/leaderboard.js"></script>
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">PlayBlitz</div>
-  <nav>
-    <a href="index.html">Home</a>
-  </nav>
+  <a href="index.html">← Home</a>
 </header>
 
-<!-- GAME AREA -->
 <div class="game-container">
 
   <canvas id="gameCanvas"></canvas>
@@ -25,36 +27,46 @@
   <div class="controls">
     <h2 id="score">Score: 0</h2>
     <button onclick="restartGame()">Restart</button>
+
+    <!-- SHARE BUTTON -->
+    <button onclick="shareScore()">📲 Share Score</button>
+
+    <!-- LEADERBOARD -->
+    <div id="leaderboard"></div>
   </div>
 
 </div>
 
-<!-- GAME LOADER -->
+<script src="js/sound.js"></script>
+
 <script>
 const params = new URLSearchParams(window.location.search);
 const game = params.get("game");
 
-// Tap Rush
-if(game === "taprush"){
+// LOAD GAME
+function loadGame(scriptName){
   const script = document.createElement("script");
-  script.src = "js/taprush.js";
+  script.src = "js/" + scriptName;
   document.body.appendChild(script);
 }
 
-// Memory Game
-if(game === "memory"){
+if(game === "taprush") loadGame("taprush.js");
+if(game === "memory") {
   document.getElementById("gameCanvas").style.display = "none";
-  const script = document.createElement("script");
-  script.src = "js/memory.js";
-  document.body.appendChild(script);
+  loadGame("memory.js");
+}
+if(game === "cardodge") loadGame("cardodge.js");
+
+// SHARE FUNCTION
+function shareScore(){
+  const score = document.getElementById("score").innerText;
+  const text = `🔥 I scored ${score} on PlayBlitz! Can you beat me? https://playblitz.in`;
+  const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
 }
 
-// Car Dodge
-if(game === "cardodge"){
-  const script = document.createElement("script");
-  script.src = "js/cardodge.js";
-  document.body.appendChild(script);
-}
+// LOAD LEADERBOARD
+setTimeout(loadLeaderboard, 1000);
 </script>
 
 </body>
